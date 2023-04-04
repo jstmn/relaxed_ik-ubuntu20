@@ -10,8 +10,7 @@
     <param name="tf_prefix" type="string" value="" />
     </node>
 
-    <arg name="gui" default="true" />
-    <param name="use_gui" value="$(arg gui)"/>
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <!-- joint_state_publisher_gui is separate from joint_state_publisher starting with ros melodic -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
 
 </launch>

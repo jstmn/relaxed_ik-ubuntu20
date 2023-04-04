@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 '''
 author: Danny Rakita
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         joint_state_define_file = open(path_to_src + '/RelaxedIK/Config/joint_state_define_functions/' + joint_state_define_file_name, 'r')
         func = joint_state_define_file.read()
         exec(func)
-        print urdf_file_name
+        print(urdf_file_name)
 
     num_chains = len(ee_fixed_joints)
 
@@ -102,7 +102,7 @@ if __name__ == '__main__':
         pos_goals = []
         quat_goals = []
 
-        for i in xrange(num_ee):
+        for i in range(num_ee):
             p = pose_goals[i]
             pos_x = p.position.x
             pos_y = p.position.y

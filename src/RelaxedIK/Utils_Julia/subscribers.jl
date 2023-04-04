@@ -24,7 +24,7 @@ function eePoseGoals_cb(data::EEPoseGoals)
         quat_z = p.orientation.z
 
         push!(pos_goals, [pos_x, pos_y, pos_z])
-        push!(quat_goals, Quat(quat_w, quat_x, quat_y, quat_z))
+        push!(quat_goals, QuatRotation(quat_w, quat_x, quat_y, quat_z))
     end
 end
 # Subscriber{EEPoseGoals}("/relaxed_ik/ee_pose_goals", eePoseGoals_cb)

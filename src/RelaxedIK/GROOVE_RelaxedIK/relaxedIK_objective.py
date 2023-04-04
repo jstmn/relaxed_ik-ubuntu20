@@ -4,6 +4,7 @@ from ..GROOVE.GROOVE_Utils.objective import Objective, objective_master
 from ..Utils import tf_fast as Tf
 from ..Utils.geometry_utils import *
 from ..Utils.joint_utils import *
+from RelaxedIK.Utils.transformations import quaternion_from_matrix
 
 # try:
 #     from boost import objectives_ext
@@ -91,7 +92,7 @@ class Orientation_Obj(Objective):
         new_mat[0:3, 0:3] = eeMat
         new_mat[3, 3] = 1
 
-        ee_quat = Tf.quaternion_from_matrix(new_mat)
+        ee_quat = quaternion_from_matrix(new_mat)
 
         q = ee_quat
         ee_quat2 = [-q[0],-q[1],-q[2],-q[3]]
@@ -135,7 +136,7 @@ class Orientation_MultiEE_Obj(Objective):
                 new_mat[0:3, 0:3] = eeMat
                 new_mat[3, 3] = 1
 
-                ee_quat = Tf.quaternion_from_matrix(new_mat)
+                ee_quat = quaternion_from_matrix(new_mat)
 
                 q = ee_quat
                 ee_quat2 = [-q[0], -q[1], -q[2], -q[3]]
@@ -334,7 +335,7 @@ class Joint_Limit_Obj(Objective):
         penalty = 50.0
         d = 8
         joint_limits = vars.robot.bounds
-        for i in xrange(vars.robot.numDOF):
+        for i in range(vars.robot.numDOF):
             l = joint_limits[i][0]
             u = joint_limits[i][1]
             mid = (u + l) / 2.0

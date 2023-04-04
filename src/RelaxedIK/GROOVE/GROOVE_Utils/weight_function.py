@@ -3,9 +3,7 @@ __author__ = 'drakita'
 import numpy as np
 from abc import ABCMeta, abstractmethod, abstractproperty
 
-class Weight_Function:
-    __metaclass__ = ABCMeta
-
+class Weight_Function(metaclass=ABCMeta):
     @abstractmethod
     def name(self): pass
 

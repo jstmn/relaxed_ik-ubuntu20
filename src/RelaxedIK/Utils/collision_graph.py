@@ -1,4 +1,4 @@
-from collision_utils import Collision_Object_Container
+from .collision_utils import Collision_Object_Container
 import numpy as np
 import itertools
 import math
@@ -14,7 +14,7 @@ class Collision_Graph:
         # self.b_value = 1.0/self.num_objects
         self.b_value = 5.0
         self.original_distances = 10000*np.ones((self.num_objects, self.num_objects))
-        self.combinations = list(itertools.combinations(range(self.num_objects),r=2))
+        self.combinations = list(itertools.combinations(list(range(self.num_objects)),r=2))
         self.collision_color_array = self.num_objects*[0]
         self.danger_dis = 0.1
 
@@ -90,8 +90,8 @@ class Collision_Graph:
     def get_c_values(self, original_distances):
         shape = self.original_distances.shape
         c_values = np.zeros(shape)
-        for i in xrange(shape[0]):
-            for j in xrange(shape[1]):
+        for i in range(shape[0]):
+            for j in range(shape[1]):
                 if original_distances[i,j] <= .001:
                     c_values[i,j] = 0.0
                 else:

@@ -1,18 +1,18 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import readchar
 import rospy
 from geometry_msgs.msg import PoseStamped, Vector3Stamped, QuaternionStamped, Pose
 from std_msgs.msg import Bool
 from relaxed_ik.msg import EEPoseGoals
-import RelaxedIK.Utils.transformations as T
+from RelaxedIK.Utils import transformations as T
 
 rospy.init_node('keyboard_ikgoal_driver')
 
 ik_goal_r_pub = rospy.Publisher('/ik_goal_r',PoseStamped,queue_size=5)
 ik_goal_l_pub = rospy.Publisher('/ik_goal_l',PoseStamped,queue_size=5)
-goal_pos_pub = rospy.Publisher('vive_position', Vector3Stamped)
-goal_quat_pub = rospy.Publisher('vive_quaternion', QuaternionStamped)
+goal_pos_pub = rospy.Publisher('vive_position', Vector3Stamped,queue_size=5)
+goal_quat_pub = rospy.Publisher('vive_quaternion', QuaternionStamped,queue_size=5)
 ee_pose_goals_pub = rospy.Publisher('/relaxed_ik/ee_pose_goals', EEPoseGoals, queue_size=5)
 quit_pub = rospy.Publisher('/relaxed_ik/quit',Bool,queue_size=5)
 
@@ -53,16 +53,22 @@ while not rospy.is_shutdown():
     key = readchar.readkey()
     if key == 'w':
         position_r[0] += pos_stride
+        print(key, f"x += {pos_stride}")
     elif key == 'x':
         position_r[0] -= pos_stride
+        print(key, f"x -= {pos_stride}")
     elif key == 'a':
         position_r[1] += pos_stride
+        print(key, f"y += {pos_stride}")
     elif key == 'd':
         position_r[1] -= pos_stride
+        print(key, f"y -= {pos_stride}")
     elif key == 'q':
         position_r[2] += pos_stride
+        print(key, f"z += {pos_stride}")
     elif key == 'z':
         position_r[2] -= pos_stride
+        print(key, f"z -= {pos_stride}")
     elif key == '1':
         euler = list(T.euler_from_quaternion(rotation_r))
         euler[0] += rot_stride
@@ -198,3 +204,4 @@ while not rospy.is_shutdown():
     q = Bool()
     q.data = False
     quit_pub.publish(q)
+    rate.sleep()

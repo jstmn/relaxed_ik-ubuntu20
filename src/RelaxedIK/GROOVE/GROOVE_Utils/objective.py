@@ -25,7 +25,7 @@ def objective_master_nlopt(x, grad):
     numDOF = len(x)
     g = O.approx_fprime(x, vars.objective_function, numDOF * [0.001])
     if grad.size > 0:
-        for i in xrange(numDOF):
+        for i in range(numDOF):
             grad[i] = g[i]
 
     return vars.objective_function(x)
@@ -33,9 +33,7 @@ def objective_master_nlopt(x, grad):
 
 #################################################################################################
 
-class Objective:
-    __metaclass__ = ABCMeta
-
+class Objective(metaclass=ABCMeta):
     def __init__(self, *args): pass
 
     @abstractmethod

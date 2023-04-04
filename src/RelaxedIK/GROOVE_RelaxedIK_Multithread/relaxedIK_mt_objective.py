@@ -1,5 +1,5 @@
 from ..GROOVE.GROOVE_Utils.objective import Objective, objective_master
-from relaxedIK_mt_utils import glue_subchains, get_subchains_from_indices, inject_subchain, inject_state
+from .relaxedIK_mt_utils import glue_subchains, get_subchains_from_indices, inject_subchain, inject_state
 import math
 import numpy as np
 

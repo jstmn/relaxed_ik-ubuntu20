@@ -288,7 +288,7 @@ function get_ee_error(relaxedIK, xopt, goal_pos, goal_quat, armidx)
     arm = relaxedIK.relaxedIK_vars.robot.arms[armidx]
     arm.getFrames(xopt)
     ee_pos = arm.out_pts[end]
-    ee_quat = Quat(arm.out_frames[end])
+    ee_quat = QuatRotation(arm.out_frames[end])
 
     pos_error = norm(ee_pos - goal_pos)
     rot_error = norm( quaternion_disp(ee_quat, goal_quat) )

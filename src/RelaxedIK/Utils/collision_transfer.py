@@ -1,4 +1,4 @@
-from RelaxedIK.relaxedIK import RelaxedIK
+# from RelaxedIK.relaxedIK import RelaxedIK
 from RelaxedIK.GROOVE_RelaxedIK.relaxedIK_vars import RelaxedIK_vars
 # from start_here import urdf_file_name, joint_names, joint_ordering, ee_fixed_joints, starting_config, \
 #    joint_state_define, collision_file_name, fixed_frame

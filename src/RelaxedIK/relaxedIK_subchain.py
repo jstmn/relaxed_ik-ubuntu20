@@ -1,4 +1,4 @@
-from GROOVE.groove import get_groove
+from .GROOVE.groove import get_groove
 from RelaxedIK.Utils.filter import EMA_filter
 from relaxed_ik.msg import JointAngles
 import rospy
@@ -39,7 +39,7 @@ class RelaxedIK_subchain(object):
                 xopt = self.groove.solve()
                 self.mt_manager.subchains_write[self.subchain_idx] = xopt
                 self.solution_count += 1
-                print 'thread {} solved: {}'.format(self.subchain_idx, self.solution_count)
+                print('thread {} solved: {}'.format(self.subchain_idx, self.solution_count))
 
 
         # while not rospy.is_shutdown():

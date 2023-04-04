@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 author: Danny Rakita
 website: http://pages.cs.wisc.edu/~rakita/
@@ -68,7 +68,7 @@ if __name__ == '__main__':
                     for i,n in enumerate(names):
                         if o == n:
                             positions.append(js[i])
-                print str(positions) + ','
+                print(str(positions) + ',')
                 prev_state = js
 
-    rate.sleep()
+        rate.sleep()

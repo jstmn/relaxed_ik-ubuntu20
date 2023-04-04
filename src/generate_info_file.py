@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 author: Danny Rakita
 website: http://pages.cs.wisc.edu/~rakita/
@@ -23,25 +23,25 @@ rospy.init_node('generate_info_file')
 path_to_src = os.path.dirname(__file__)
 
 if info_file_name == '':
-    print bcolors.FAIL + 'info_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'info_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 
 out_file = open(path_to_src + '/RelaxedIK/Config/info_files/' + info_file_name, 'w')
 
 if urdf_file_name == '':
-    print bcolors.FAIL + 'urdf_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'urdf_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     out_file.write('urdf_file_name: \"{}\"\n'.format(urdf_file_name))
 
 if fixed_frame == '':
-    print bcolors.FAIL + 'fixed_frame is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'fixed_frame is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     out_file.write('fixed_frame: \"{}\"\n'.format(fixed_frame))
 
 if len(joint_names) == 0:
-    print bcolors.FAIL + 'joint_names is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'joint_names is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     num_chains = len(joint_names)
@@ -59,7 +59,7 @@ else:
 
 
 if len(joint_ordering) == 0:
-    print bcolors.FAIL + 'joint_ordering is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'joint_ordering is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     ordering_str = '[ '
@@ -71,7 +71,7 @@ else:
     out_file.write('joint_ordering: {}\n'.format(ordering_str))
 
 if len(ee_fixed_joints) == 0:
-    print bcolors.FAIL + 'ee_fixed_joints is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'ee_fixed_joints is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     ee_str = '[ '
@@ -84,7 +84,7 @@ else:
 
 
 if len(starting_config) == 0:
-    print bcolors.FAIL + 'starting_config is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'starting_config is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     st_str = '[ '
@@ -98,7 +98,7 @@ else:
 
 
 if collision_file_name == '':
-    print bcolors.FAIL + 'collision_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC
+    print(bcolors.FAIL + 'collision_file_name is a required field in start_here.py.  Please fill that in and run again.' + bcolors.ENDC)
     exit(-1)
 else:
     out_file.write('collision_file_name: \"{}\"\n'.format(collision_file_name))
@@ -231,7 +231,7 @@ out_file.write('joint_state_define_func_file: \"{}\"\n'.format(joint_state_defin
 
 out_file.close()
 
-print bcolors.OKGREEN + 'info file {} successfully created!'.format(info_file_name) + bcolors.ENDC
+print(bcolors.OKGREEN + 'info file {} successfully created!'.format(info_file_name) + bcolors.ENDC)
 
 '''
 in_file = open(path_to_src + '/RelaxedIK/Config/info_files/' + info_file_name, 'r')

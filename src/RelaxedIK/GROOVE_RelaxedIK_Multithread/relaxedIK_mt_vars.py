@@ -1,5 +1,5 @@
 from ..GROOVE.GROOVE_Utils.vars import Vars
-from relaxedIK_mt_objective import objective_master_relaxedIK_mt
+from .relaxedIK_mt_objective import objective_master_relaxedIK_mt
 from ..GROOVE_RelaxedIK.relaxedIK_objective import Min_Jt_Vel_Obj, Min_Jt_Accel_Obj, Min_Jt_Jerk_Obj, Orientation_MultiEE_Obj, Position_MultiEE_Obj, Collision_Avoidance_nn
 from ..GROOVE_RelaxedIK.relaxedIK_weight_function import Identity_Weight
 from ..GROOVE_RelaxedIK_Multithread.relaxedIK_mt_utils import get_subchains_from_indices, glue_subchains

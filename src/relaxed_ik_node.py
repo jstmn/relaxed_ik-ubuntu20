@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 author: Danny Rakita
 website: http://pages.cs.wisc.edu/~rakita/
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         pose_goals = eepg.ee_poses
         header = eepg.header
 
-        for i in xrange(num_chains):
+        for i in range(num_chains):
             p = pose_goals[i]
             pos_x = p.position.x
             pos_y = p.position.y
@@ -66,6 +66,6 @@ if __name__ == '__main__':
             ja.angles.data.append(x)
 
         angles_pub.publish(ja)
-        print xopt
+        print(xopt)
 
         rate.sleep()

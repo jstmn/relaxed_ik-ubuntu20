@@ -1,5 +1,5 @@
 
-from relaxedIK_mt_utils import get_subchains_from_indices, glue_subchains
+from .relaxedIK_mt_utils import get_subchains_from_indices, glue_subchains
 import rospy
 from relaxed_ik.msg import JointAngles
 from std_msgs.msg import Float64
@@ -17,7 +17,7 @@ class Multithread_Manager:
         self.solution_count = 0
 
         self.subchain_msgs = [   ]
-        for i in xrange(self.num_subchains):
+        for i in range(self.num_subchains):
             self.subchain_msgs.append(JointAngles())
             for j, s in enumerate(self.subchains[i]):
                 self.subchain_msgs[i].angles.append(Float64(self.subchains[i][j]))
@@ -39,10 +39,10 @@ class Multithread_Manager:
         correct_length = len(self.subchain_indices[idx])
         curr_subchain_msg_angles = self.subchain_msgs[idx].angles
         subchain = []
-        for j in xrange(len(curr_subchain_msg_angles)):
+        for j in range(len(curr_subchain_msg_angles)):
             subchain.append(float(curr_subchain_msg_angles[j].data))
         if not len(subchain) == correct_length:
-            print 'warning: subchain was not correct length.  Retrying'
+            print('warning: subchain was not correct length.  Retrying')
             # return self.get_curr_subchain_by_idx(idx)
             return None
 
@@ -51,7 +51,7 @@ class Multithread_Manager:
 
     def get_all_subchains(self):
         subchains = []
-        for i in xrange(self.num_subchains):
+        for i in range(self.num_subchains):
             subchain = self.get_curr_subchain_by_idx(i)
             # for j in xrange(len(self.subchain_msgs[i].angles)):
             #     subchain.append(float(self.subchain_msgs[i].angles[j].data))
@@ -84,10 +84,10 @@ if __name__ == '__main__':
 
     mm = Multithread_Manager(subchain_indicies, relaxedIK)
 
-    print mm.get_all_subchains()
+    print(mm.get_all_subchains())
 
 
-    print mm.num_subchains
+    print(mm.num_subchains)
 
     pub0 = rospy.Publisher('subchain_0', JointAngles, queue_size=3)
     pub1 = rospy.Publisher('subchain_1', JointAngles, queue_size=3)
@@ -108,7 +108,7 @@ if __name__ == '__main__':
 
         idx += 0.01
 
-        print mm.get_all_subchains()
+        print(mm.get_all_subchains())
 
 
 

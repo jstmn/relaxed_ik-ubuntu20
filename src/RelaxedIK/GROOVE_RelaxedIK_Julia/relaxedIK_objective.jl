@@ -66,9 +66,9 @@ function rotation_obj_1(x, vars)
     eeMat = vars.robot.arms[1].out_frames[end]
 
     goal_quat = vars.goal_quats[1]
-    ee_quat = Quat(eeMat)
+    ee_quat = QuatRotation(eeMat)
 
-    ee_quat2 = Quat(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
+    ee_quat2 = QuatRotation(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
 
     disp = norm(quaternion_disp(goal_quat, ee_quat))
     disp2 = norm(quaternion_disp(goal_quat, ee_quat2))
@@ -85,9 +85,9 @@ function rotation_obj_2(x, vars)
     eeMat = vars.robot.arms[2].out_frames[end]
 
     goal_quat = vars.goal_quats[2]
-    ee_quat = Quat(eeMat)
+    ee_quat = QuatRotation(eeMat)
 
-    ee_quat2 = Quat(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
+    ee_quat2 = QuatRotation(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
 
     disp = norm(quaternion_disp(goal_quat, ee_quat))
     disp2 = norm(quaternion_disp(goal_quat, ee_quat2))
@@ -103,9 +103,9 @@ function rotation_obj_3(x, vars)
     eeMat = vars.robot.arms[3].out_frames[end]
 
     goal_quat = vars.goal_quats[3]
-    ee_quat = Quat(eeMat)
+    ee_quat = QuatRotation(eeMat)
 
-    ee_quat2 = Quat(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
+    ee_quat2 = QuatRotation(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
 
     disp = norm(quaternion_disp(goal_quat, ee_quat))
     disp2 = norm(quaternion_disp(goal_quat, ee_quat2))
@@ -121,9 +121,9 @@ function rotation_obj_4(x, vars)
     eeMat = vars.robot.arms[4].out_frames[end]
 
     goal_quat = vars.goal_quats[4]
-    ee_quat = Quat(eeMat)
+    ee_quat = QuatRotation(eeMat)
 
-    ee_quat2 = Quat(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
+    ee_quat2 = QuatRotation(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
 
     disp = norm(quaternion_disp(goal_quat, ee_quat))
     disp2 = norm(quaternion_disp(goal_quat, ee_quat2))
@@ -139,9 +139,9 @@ function rotation_obj_5(x, vars)
     eeMat = vars.robot.arms[5].out_frames[end]
 
     goal_quat = vars.goal_quats[5]
-    ee_quat = Quat(eeMat)
+    ee_quat = QuatRotation(eeMat)
 
-    ee_quat2 = Quat(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
+    ee_quat2 = QuatRotation(-ee_quat.w, -ee_quat.x, -ee_quat.y, -ee_quat.z)
 
     disp = norm(quaternion_disp(goal_quat, ee_quat))
     disp2 = norm(quaternion_disp(goal_quat, ee_quat2))

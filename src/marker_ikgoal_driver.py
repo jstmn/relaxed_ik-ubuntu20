@@ -8,7 +8,7 @@ from RelaxedIK.relaxedIK import get_relaxedIK_from_info_file
 from RelaxedIK.Utils.interactive_marker_utils import InteractiveMarkerFeedbackUtil, InteractiveMarkerUtil, InteractiveMarkerServerUtil
 from relaxed_ik.msg import EEPoseGoals
 from geometry_msgs.msg import PoseStamped, Vector3Stamped, QuaternionStamped, Pose
-import RelaxedIK.Utils.transformations as T
+from . import RelaxedIK.Utils.transformations as T
 
 rospy.init_node('marker_ikgoal_driver')
 
@@ -27,7 +27,7 @@ rospy.sleep(0.2)
 
 int_markers = []
 
-for i in xrange(num_chains):
+for i in range(num_chains):
     int_marker = InteractiveMarkerUtil(init_pos=init_ee_positions[i], init_quat=init_ee_quats[i])
     int_marker.add_6dof_controls()
     int_markers.append(int_marker)
@@ -41,7 +41,7 @@ rate = rospy.Rate(40)
 while not rospy.is_shutdown():
     eepg = EEPoseGoals()
 
-    for i in xrange(num_chains):
+    for i in range(num_chains):
         if not int_markers[i].feedback_util.active:
             pose = Pose()
             pose.position.x = 0.0

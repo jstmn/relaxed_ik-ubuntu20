@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 author: Danny Rakita
 website: http://pages.cs.wisc.edu/~rakita/
@@ -48,6 +48,7 @@ or negative experiences in using it.
 # Step 1b: Please set the following variable to the file name of your robot urdf.  For example, for the
 #   ur5 robot urdf already in the urdfs folder, this variable would read 'ur5.urdf'
 #   ex: urdf_file_name = 'ur5.urdf'
+# urdf_file_name = ''
 urdf_file_name = ''
 ######################################################################################################
 
@@ -55,6 +56,7 @@ urdf_file_name = ''
 ######################################################################################################
 # Step 1c: Please provide the fixed frame name.  This will be the root link name in the urdf
 #   ex: fixed_frame  = 'base_link'
+# fixed_frame = ''
 fixed_frame = ''
 ######################################################################################################
 
@@ -62,6 +64,7 @@ fixed_frame = ''
 # Step 1d: At the end of this walk-through, there will be a central yaml file automatically generated that
 #   will contain information about your robot setup.  Please provide a name for that file.
 #   ex: info_file_name = 'ur5_info.yaml'
+# info_file_name = ''
 info_file_name = ''
 ######################################################################################################
 
@@ -89,7 +92,8 @@ info_file_name = ''
 #                'LEFT_WRIST_PITCH', 'LEFT_WRIST_YAW_2'] ]
 #   example 2 shows what this would be for a single end-effector robot, specifically using the UR5 robot
 #   ex2: [ ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint'] ]
-joint_names = [ [ ] ]
+# joint_names = [ [ ] ]
+joint_names = [ [] ]
 ######################################################################################################
 
 
@@ -109,7 +113,7 @@ joint_names = [ [ ] ]
 #   ex1: [ 'WAIST', 'RIGHT_SHOULDER_PITCH', 'RIGHT_SHOULDER_ROLL', 'RIGHT_SHOULDER_YAW', 'RIGHT_ELBOW', 'RIGHT_WRIST_YAW',
 #               'RIGHT_WRIST_PITCH', 'RIGHT_WRIST_YAW_2','LEFT_SHOULDER_PITCH', 'LEFT_SHOULDER_ROLL', 'LEFT_SHOULDER_YAW',
 #               'LEFT_ELBOW', 'LEFT_WRIST_YAW', 'LEFT_WRIST_PITCH', 'LEFT_WRIST_YAW_2' ]
-joint_ordering =  [ ]
+joint_ordering =  []
 ######################################################################################################
 
 
@@ -124,7 +128,8 @@ joint_ordering =  [ ]
 #   ex1: ee_fixed_joints = ['RIGHT_HAND', 'LEFT_HAND']
 #   For example 2, using the UR5, this is a single chain robot, so it will only have a single end-effector joint
 #   ex2: ee_fixed_joints = ['ee_fixed_joint']
-ee_fixed_joints = [  ]
+# ee_fixed_joints = [  ]
+ee_fixed_joints = [ ]
 ######################################################################################################
 
 
@@ -133,6 +138,7 @@ ee_fixed_joints = [  ]
 #   The configuration should be a single list of values for each joint's rotation (in radians) adhering
 #   to the joint order you specified in Step 3b
 #   ex: starting_config = [ 3.12769839, -0.03987385, -2.07729916, -1.03981438, -1.58652782, -1.5710159 ]
+# starting_config = [ ]
 starting_config = [ ]
 ######################################################################################################
 
@@ -237,7 +243,7 @@ def joint_state_define(x):
 #   them easier to copy and paste into the collision yaml file.
 #
 #   To start this tool, use the command:
-#       roslaunch relaxed_ik urdf_viewer.launch
+#       roslaunch relaxed_ik urdf_viewer.launch                                                                         # CMD HERE
 #
 #   The next (optional) fields in the collision file are the following:
 #      training_states: [ ]
@@ -283,7 +289,7 @@ def joint_state_define(x):
 #
 #   Please provide the name of the collision file that you have been filling out in the RelaxedIK/Config directory:
 #   ex: collision_file_name = 'collision.yaml'
-collision_file_name = ' '
+collision_file_name = ''
 ###########################################################################################################
 
 
@@ -309,7 +315,7 @@ collision_file_name = ' '
 ######################################################################################################
 # Step 6: load the newly created info file by changing the info_file_name argument in the load_info_file
 #   launch file and running the following command:
-#
+#      roslaunch relaxed_ik load_info_file.launch info_file_name:=fetch_info.yaml # or by using info_file_name:=<info filename>
 #      roslaunch relaxed_ik load_info_file.launch
 #######################################################################################################
 
@@ -371,7 +377,7 @@ collision_file_name = ' '
 #
 #   To train the julia version, run the following command:
 #
-#   roslaunch relaxed_ik preprocessing_julia.launch
+#   roslaunch relaxed_ik preprocessing_julia.launch                                                                     # CMD HERE
 ######################################################################################################
 
 
@@ -382,7 +388,7 @@ collision_file_name = ' '
 #   command found in Step 7.
 #
 #   For the rust version of the solver (recommended), run the following command:
-#       roslaunch relaxed_ik relaxed_ik_rust.launch
+#       roslaunch relaxed_ik relaxed_ik_rust.launch                                                                     # CMD HERE - ERROR: 'the parameter type `T` may not live long enough'
 #
 #   Note: The first time this command is run, it will take a few minutes to compile.  It will only take
 #   this long the first time it's ever built though, after that it'll start immediately with this command.  
@@ -446,7 +452,7 @@ collision_file_name = ' '
 #   using keyboard inputs.  To start, ensure that a version of relaxedIK has been initialized, following
 #   Steps 7 and 9a.  Next, start up the rviz viewer by running the following command:
 #
-#   roslaunch relaxed_ik rviz_viewer.launch
+#   roslaunch relaxed_ik rviz_viewer.launch                                                                             # CMD HERE
 #
 #   Once this command is run, you should see an rviz window come up, and your robot platform should be
 #   stationary in the initial configuation you specified for the info file in step 3d.
@@ -457,7 +463,7 @@ collision_file_name = ' '
 #   This keyboard interface has been designed just for testing.  To start up the keyboard controller, use
 #   the following command:
 #
-#   rosrun relaxed_ik keyboard_ikgoal_driver.py
+#   rosrun relaxed_ik keyboard_ikgoal_driver.py                                                                         # CMD HERE
 #
 #   The keyboard controller handles up to two chains in the robot platform (if you only have a single chain in your
 #   system, the solver will know not to listen to the single end-effector goal).  To use the keyboard controller,

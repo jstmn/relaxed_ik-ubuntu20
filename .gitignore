@@ -6,7 +6,7 @@ __pycache__/
 # C extensions
 # *.so
 
-start_here_*.py
+# start_here_*.py
 keras_test2.py
 keras_test.py
 sample2.py
@@ -126,7 +126,7 @@ src/RelaxedIK/Config/collision_nn/*
 !src/RelaxedIK/Config/collision_nn/README
 src/RelaxedIK/Config/collision_nn_python/*
 !src/RelaxedIK/Config/collision_nn_python/README
-src/RelaxedIK/Config/info_files/*
+# src/RelaxedIK/Config/info_files/*
 !src/RelaxedIK/Config/info_files/README
 src/RelaxedIK/Config/joint_state_define_functions/*
 !src/RelaxedIK/Config/joint_state_define_functions/README

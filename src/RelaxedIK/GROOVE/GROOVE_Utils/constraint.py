@@ -3,9 +3,7 @@ __author__ = 'drakita'
 from abc import ABCMeta, abstractmethod
 import scipy.optimize as O
 
-class Constraint:
-    __metaclass__ = ABCMeta
-
+class Constraint(metaclass=ABCMeta):
     def __init__(self, *args): pass
 
     @abstractmethod
@@ -23,7 +21,7 @@ class Constraint:
         numDOF = len(x)
         g = O.approx_fprime(x, self.func, numDOF * [0.001])
         if grad.size > 0:
-            for i in xrange(numDOF):
+            for i in range(numDOF):
                 grad[i] = -g[i]
         return -self.func(x)
 

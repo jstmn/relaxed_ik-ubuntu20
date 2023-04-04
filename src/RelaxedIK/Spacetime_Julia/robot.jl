@@ -276,7 +276,7 @@ function get_linear_jacobian(robot, x)
     end
 end
 
-Base.@ccallable function julia_main(ARGS::Vector{String})::Cint
+function julia_main(ARGS::Vector{String})::Cint
     axis_types = ["-z","y","y","y","z","y"]
     displacements = [[0.0, 0.13585, 0.0], [0.0, -0.1197, 0.425], [0.0, 0.0, 0.39225], [0, 0.093, 0], [0, 0, 0.09465], [0.0,0.0823,0.0]]
     disp_offset = [0., 0., 0.089159]

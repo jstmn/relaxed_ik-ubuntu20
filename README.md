@@ -98,6 +98,9 @@ scipy:
 Pyyaml:
 <pre> sudo pip install PyYaml </pre>
 
+joblib:
+<pre> pip install joblib </pre>
+
 Lastly, update your version of numpy:
 <pre> sudo pip install --upgrade numpy </pre>
 

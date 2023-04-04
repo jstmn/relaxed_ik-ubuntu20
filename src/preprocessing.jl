@@ -60,8 +60,8 @@ function predict(w,x)
     return w[end-1]*x .+ w[end]
 end
 
-loss(w,x,y) = Knet.mean(abs2, y - predict(w,x) )
-loss2(w,x,y) = Knet.mean(abs2, y - predict(w,x))[1]
+loss(w,x,y) = mean(abs2, y - predict(w,x) )
+loss2(w,x,y) = mean(abs2, y - predict(w,x))[1]
 # loss(w,x,y) = (y[1] - predict(w,x)[1])^2
 # loss2(w,x,y) = ((y[1] - predict(w,x)[1])^2)[1]
 lossgradient = grad(loss)

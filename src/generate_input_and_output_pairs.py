@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 '''
 author: Danny Rakita
 website: http://pages.cs.wisc.edu/~rakita/
@@ -57,7 +57,7 @@ def get_collision_score(relaxedIK, state):
 
 def list_of_values_to_string(list):
     out_str = '[ '
-    for i in xrange(len(list) - 1):
+    for i in range(len(list) - 1):
         out_str += str(list[i])
         out_str += ', '
     out_str += str(list[-1])
@@ -69,7 +69,7 @@ def list_of_list_of_values_to_string(list):
     if type(list[0]) == float or type(list[0]) == np.float64:
         return list_of_values_to_string(list)
     else:
-        for i in xrange(len(list) - 1):
+        for i in range(len(list) - 1):
             out_str += list_of_list_of_values_to_string(list[i]) + ', '
         out_str += list_of_list_of_values_to_string(list[-1])
 
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     robot_name = y['urdf_file_name'].split('.')[0]
 
     top_dir = path_to_src + '/RelaxedIK/Config/collision_inputs_and_outputs'
-    dirs = os.walk(top_dir).next()
+    dirs = next(os.walk(top_dir))
 
     dir_found = False
     for d in dirs[1]:
@@ -128,14 +128,14 @@ if __name__ == '__main__':
     total_example_count = 0
 
     while total_example_count < total_number_of_examples:
-        out_file = open(top_dir + '/{}.pkl'.format(file_idx), 'w')
+        out_file = open(top_dir + '/{}.pkl'.format(file_idx), 'wb')
         states = []
         jt_pts = []
         collision_scores = []
         condition_scores = []
         yoshiwaka_scores = []
-        for j in xrange(lines_per_file):
-            print 'file {}, line {}'.format(file_idx, j)
+        for j in range(lines_per_file):
+            print('file {}, line {}'.format(file_idx, j))
             tup = get_input_output_pair(relaxedIK)
             states.append(tup[0])
             jt_pts.append(tup[1])
@@ -150,6 +150,6 @@ if __name__ == '__main__':
         # out_file.write('jt_pts: {}\n'.format(list_of_list_of_values_to_string(jt_pts)))
         # out_file.write('collision_scores: {}'.format(str(collision_scores)))
         file_idx += 1
-
-
+        
+        out_file.close()
 
