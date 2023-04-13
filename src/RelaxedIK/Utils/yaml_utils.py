@@ -1,3 +1,4 @@
+import os
 import rospy
 import yaml
 from RelaxedIK.Utils.colors import bcolors
@@ -19,6 +20,7 @@ def get_relaxedIK_yaml_obj(path_to_src):
 
 def get_relaxedIK_yaml_obj_from_info_file_name(path_to_src, info_file_name):
     info_file_path = path_to_src + '/RelaxedIK/Config/info_files/' + info_file_name
+    assert os.path.isfile(info_file_path), f"Error, file '{info_file_path}' not found"
     info_file = open(info_file_path, 'r')
     y = yaml.load(info_file)
     return y

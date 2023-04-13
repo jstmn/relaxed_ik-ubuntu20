@@ -45,11 +45,19 @@ class Robot:
         bounds = self.numDOF*[0.0]
 
         for i,a in enumerate(self.arms):
+            print("Arm:", a)
             sub_bounds = a.joint_limits
             for j,l in enumerate(sub_bounds):
                 idx = self.subchain_indices[i][j]
                 bounds[idx] = l
 
+        print("Robot joint limits:")
+        for idx, b in enumerate(bounds):
+            print(f"bounds[{idx}]: {b}")
+        print()
+
+        for idx, (l, u) in enumerate(bounds):
+            assert l != u, f"Error, l==u ({l} == {u}) for joint index {idx}'s bounds"
         self.bounds = bounds
 
     def __initialize_velocity_limits(self):

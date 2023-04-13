@@ -76,6 +76,13 @@ https://dl.acm.org/citation.cfm?id=3171221.3171279
 
 <b> Python Dependencies (Not optional) </b>
 
+Condensed install directions:
+``` bash
+sudo apt-get install -y ros-noetic-urdfdom-py ros-noetic-kdl-parser-py ros-noetic-kdl-conversions
+python3 -m pip install readchar python-fcl scikit-learn scipy PyYaml joblib
+python3 -m pip install --upgrade numpy
+```
+
 kdl urdf parser:
 <pre> sudo apt-get install ros-[your ros distro]-urdfdom-py </pre>
 <pre> sudo apt-get install ros-[your ros distro]-kdl-parser-py </pre>

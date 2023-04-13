@@ -159,7 +159,8 @@ class PreprocessorEngine:
 
         sample_idx = 0
         while sample_idx < num_samples:
-            print('sample {} of {}'.format(sample_idx, num_samples))
+            if sample_idx % 100 == 0:
+                print('sample {} of {}'.format(sample_idx, num_samples))
             file_idx = np.random.randint(0, highest_number)
             try_idx = 0
             while file_idx in chosen_idxs and try_idx < 100:

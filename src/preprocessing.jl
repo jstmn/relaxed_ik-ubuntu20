@@ -6,7 +6,7 @@ using Calculus
 using Random
 using RobotOS
 
-ENV["PYTHON"] = "/usr/bin/python"
+ENV["PYTHON"] = "/usr/bin/python3"
 
 println("preparing for preprocessing....")
 
@@ -200,7 +200,10 @@ for i=1:num_samples
         break
     end
 
-    println("sample $i of $num_samples ::: state: $in, y: $out")
+    if i % 100 == 0
+        println("sample $i of $num_samples")
+    end
+    # println("sample $i of $num_samples ::: state: $in, y: $out")
 end
 
 

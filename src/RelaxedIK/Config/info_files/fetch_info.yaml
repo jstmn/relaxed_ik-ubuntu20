@@ -6,7 +6,7 @@ ee_fixed_joints: [ "gripper_axis" ]
 starting_config: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 collision_file_name: "collision_example_fetch.yaml"
 collision_nn_file: "fetch_nn"
-path_to_src: "/home/jstm/ros/torm_workspace/src/relaxed_ik/src"
+path_to_src: "/home/jstm/ros/stampede_ws/src/relaxed_ik-ubuntu20/src"
 axis_types: [ [ "z", "z", "y", "x", "y", "x", "y", "x" ] ]
 velocity_limits: [ 0.1, 1.256, 1.454, 1.571, 1.521, 1.571, 2.268, 2.268 ]
 joint_limits: [ [0.0,0.38615], [-1.6056,1.6056], [-1.221,1.518], [-15.0,15.0], [-2.251,2.251], [-15.0,15.0], [-2.16,2.16], [-15.0,15.0] ]

@@ -25,6 +25,11 @@ rotation_r = [1,0,0,0]
 position_l = [0,0,0]
 rotation_l = [1,0,0,0]
 
+print("Controls:")
+print("  X: [w-, x+]")
+print("  Y: [d-, a+]")
+print("  Z: [z-, q+]")
+
 seq = 1
 rate = rospy.Rate(1000)
 while not rospy.is_shutdown():
@@ -71,26 +76,32 @@ while not rospy.is_shutdown():
         print(key, f"z -= {pos_stride}")
     elif key == '1':
         euler = list(T.euler_from_quaternion(rotation_r))
+        print(key, f"roll += {rot_stride}")
         euler[0] += rot_stride
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
     elif key == '2':
         euler = list(T.euler_from_quaternion(rotation_r))
+        print(key, f"roll -= {rot_stride}")
         euler[0] -= rot_stride
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
     elif key == '3':
         euler = list(T.euler_from_quaternion(rotation_r))
+        print(key, f"pitch += {rot_stride}")
         euler[1] += rot_stride
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
     elif key == '4':
         euler = list(T.euler_from_quaternion(rotation_r))
+        print(key, f"pitch -= {rot_stride}")
         euler[1] -= rot_stride
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
     elif key == '5':
         euler = list(T.euler_from_quaternion(rotation_r))
         euler[2] += rot_stride
+        print(key, f"yaw += {rot_stride}")
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
     elif key == '6':
         euler = list(T.euler_from_quaternion(rotation_r))
+        print(key, f"yaw -= {rot_stride}")
         euler[2] -= rot_stride
         rotation_r = T.quaternion_from_euler(euler[0],euler[1],euler[2])
 

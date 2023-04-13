@@ -25,6 +25,10 @@ or negative experiences in using it.
 
 # Step-by-step guide starts here!
 
+from start_here__fetch_arm import fetch_arm_description
+from start_here__fetch import fetch_description
+# robot = fetch_description
+robot = fetch_arm_description
 
 ######################################################################################################
 # Step 0: The RelaxedIK project should be included as a package within a catkin workspace
@@ -49,15 +53,17 @@ or negative experiences in using it.
 #   ur5 robot urdf already in the urdfs folder, this variable would read 'ur5.urdf'
 #   ex: urdf_file_name = 'ur5.urdf'
 # urdf_file_name = ''
-urdf_file_name = ''
+urdf_file_name = robot.urdf_file_name
+print("urdf_file_name:", urdf_file_name)
 ######################################################################################################
+
 
 
 ######################################################################################################
 # Step 1c: Please provide the fixed frame name.  This will be the root link name in the urdf
 #   ex: fixed_frame  = 'base_link'
 # fixed_frame = ''
-fixed_frame = ''
+fixed_frame = robot.fixed_frame
 ######################################################################################################
 
 ######################################################################################################
@@ -65,7 +71,7 @@ fixed_frame = ''
 #   will contain information about your robot setup.  Please provide a name for that file.
 #   ex: info_file_name = 'ur5_info.yaml'
 # info_file_name = ''
-info_file_name = ''
+info_file_name = robot.info_file_name
 ######################################################################################################
 
 
@@ -93,7 +99,7 @@ info_file_name = ''
 #   example 2 shows what this would be for a single end-effector robot, specifically using the UR5 robot
 #   ex2: [ ['shoulder_pan_joint', 'shoulder_lift_joint', 'elbow_joint', 'wrist_1_joint', 'wrist_2_joint', 'wrist_3_joint'] ]
 # joint_names = [ [ ] ]
-joint_names = [ [] ]
+joint_names = robot.joint_names
 ######################################################################################################
 
 
@@ -113,7 +119,7 @@ joint_names = [ [] ]
 #   ex1: [ 'WAIST', 'RIGHT_SHOULDER_PITCH', 'RIGHT_SHOULDER_ROLL', 'RIGHT_SHOULDER_YAW', 'RIGHT_ELBOW', 'RIGHT_WRIST_YAW',
 #               'RIGHT_WRIST_PITCH', 'RIGHT_WRIST_YAW_2','LEFT_SHOULDER_PITCH', 'LEFT_SHOULDER_ROLL', 'LEFT_SHOULDER_YAW',
 #               'LEFT_ELBOW', 'LEFT_WRIST_YAW', 'LEFT_WRIST_PITCH', 'LEFT_WRIST_YAW_2' ]
-joint_ordering =  []
+joint_ordering =  robot.joint_ordering
 ######################################################################################################
 
 
@@ -129,7 +135,7 @@ joint_ordering =  []
 #   For example 2, using the UR5, this is a single chain robot, so it will only have a single end-effector joint
 #   ex2: ee_fixed_joints = ['ee_fixed_joint']
 # ee_fixed_joints = [  ]
-ee_fixed_joints = [ ]
+ee_fixed_joints = robot.ee_fixed_joints
 ######################################################################################################
 
 
@@ -139,7 +145,7 @@ ee_fixed_joints = [ ]
 #   to the joint order you specified in Step 3b
 #   ex: starting_config = [ 3.12769839, -0.03987385, -2.07729916, -1.03981438, -1.58652782, -1.5710159 ]
 # starting_config = [ ]
-starting_config = [ ]
+starting_config = robot.starting_config
 ######################################################################################################
 
 
@@ -204,10 +210,10 @@ starting_config = [ ]
 #
 #
 # TODO: fill out this function, or leave it how it is for the default option
-from sensor_msgs.msg import JointState
-def joint_state_define(x):
-	return None
-
+# from sensor_msgs.msg import JointState
+# def joint_state_define(x):
+# 	return None
+joint_state_define = robot.joint_state_define
 
 ######################################################################################################
 
@@ -289,7 +295,7 @@ def joint_state_define(x):
 #
 #   Please provide the name of the collision file that you have been filling out in the RelaxedIK/Config directory:
 #   ex: collision_file_name = 'collision.yaml'
-collision_file_name = ''
+collision_file_name = robot.collision_file_name
 ###########################################################################################################
 
 
